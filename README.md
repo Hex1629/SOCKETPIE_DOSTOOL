@@ -13,3 +13,10 @@
 <h1>🌊 GUI SOCKET.PIE🥧 DOS TOOL 🌊</h1>
 <img src="https://github.com/Hex1629/SOCKETPIE_DOSTOOL/blob/main/FLOOD_MESSAGE.png"></img>
 <img src="https://github.com/Hex1629/SOCKETPIE_DOSTOOL/blob/main/INPUT_ALL.png"></img>
+
+# MAKE BY Hex1629 (👤🛠️)
+💸 YOU CAN RESELL BUT YOU NEED TO WRITE CREDIT ME.
+
+🛠️📁 IF YOU MAKE NEW VERSIONS WRITE CREDIT YOU TOO.
+
+📌 DON'T FORGOT ! ! !
