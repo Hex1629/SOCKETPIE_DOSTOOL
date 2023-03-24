@@ -10,10 +10,20 @@ try:
     import sys
     from colorama import Fore
 except ModuleNotFoundError as e:
-    print(f"{e} CAN'T IMPORT . . . .")
+    print(f"{e} CAN'T IMPORT . . . . ")
     exit()
 
 # DEF & CLASS
+
+username = ''
+password = ''
+
+def login_checker(username,password):
+    credentials = [x.strip() for x in open(f'{os.path.dirname(__file__)}\\login.txt').readlines() if x.strip()]
+    for x in credentials:
+        c_username, c_password = x.split('@')
+        if c_username.upper()  == username.upper() and c_password.upper() == password.upper():
+            return True
 
 def clear_text():
     if platform.system().upper() == "WINDOWS":
@@ -92,14 +102,14 @@ def runing_attack(ip,host,port_loader,time_loader,spam_loader,methods_loader,boo
 prefix_get = "!"
 status_help_type = 0
 def command():
-    global status_help_type,status_code,prefix_get
+    global status_help_type,status_code,prefix_get,username,password
     if status_help_type == 0:
         print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘\n {Fore.WHITE}[{Fore.GREEN}+{Fore.WHITE}] {Fore.WHITE}< {Fore.LIGHTGREEN_EX}TYPE {prefix_get}HELP FOR SHOW COMMAND {Fore.WHITE}> {Fore.RESET}")
         status_help_type += 1
     else:
         pass
 
-    data_input_loader = input(f"{Fore.CYAN}ROOT{Fore.WHITE}@{Fore.BLUE}SOCKET.PIE {Fore.WHITE}${Fore.RESET}")
+    data_input_loader = input(f"{Fore.CYAN}{username}{Fore.WHITE}@{Fore.BLUE}{password} {Fore.WHITE}${Fore.RESET}")
     args_get = data_input_loader.split(" ")
     if args_get[0].upper() == f"{prefix_get}CREDIT":
         print(f"{Fore.YELLOW}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.LIGHTYELLOW_EX}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗{Fore.RED}┌─┐┬┌─┐\n{Fore.YELLOW}   ╚═╗║ ║║  ╠╩╗║╣  ║{Fore.LIGHTRED_EX} ├─┘│├┤ \n{Fore.LIGHTRED_EX}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩{Fore.WHITE}o{Fore.LIGHTYELLOW_EX}┴  ┴└─┘\n\n{Fore.LIGHTMAGENTA_EX}CREDIT {Fore.WHITE}- {Fore.LIGHTBLUE_EX}ART {Fore.WHITE}: {Fore.CYAN}Riitta Rasimus {Fore.WHITE}- {Fore.LIGHTCYAN_EX}ascii.co.uk/art/pie {Fore.WHITE}|{Fore.GREEN} DEV {Fore.WHITE}- {Fore.LIGHTGREEN_EX}github.com/Hex1629{Fore.RESET}")
@@ -108,6 +118,8 @@ def command():
     elif args_get[0].upper() == f"{prefix_get}PREFIX_SET":
         if len(args_get) == 2:
             prefix_get = args_get[1]
+            clear_text()
+            print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘\n {Fore.WHITE}[{Fore.GREEN}+{Fore.WHITE}] {Fore.WHITE}< {Fore.LIGHTGREEN_EX}TYPE {prefix_get}HELP FOR SHOW COMMAND {Fore.WHITE}> {Fore.RESET}")
         else:
             print(f"{Fore.YELLOW}{prefix_get}PREFIX_SET <PREFIX>{Fore.RESET}")
     elif args_get[0].upper() == f"{prefix_get}CLEAR" or args_get[0].upper() == f"{prefix_get}CLS":
@@ -117,7 +129,10 @@ def command():
         print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘\n {Fore.WHITE}[{Fore.GREEN}+{Fore.WHITE}] {Fore.WHITE}< {Fore.LIGHTGREEN_EX}TYPE {prefix_get}HELP FOR SHOW COMMAND {Fore.WHITE}> {Fore.RESET}")
     elif args_get[0].upper() == f"{prefix_get}EXIT":
         print(f"{Fore.LIGHTGREEN_EX}EXIT . . .{Fore.RESET}")
-        exit()
+        try:
+            exit()
+        except:
+            sys.exit()
     elif args_get[0].upper() == f"{prefix_get}FLOOD":
         if len(args_get) == 10:
             data_type_loader_packet = args_get[1].upper()
@@ -158,9 +173,24 @@ def command():
     else:
         print(f"{Fore.WHITE}[{Fore.YELLOW}+{Fore.WHITE}] {Fore.RED}{data_input_loader} {Fore.LIGHTRED_EX}Not found command{Fore.RESET}")
     command()
-print(F"{Fore.BLUE}LOGIN TO PANEL {Fore.WHITE}({Fore.LIGHTBLUE_EX}AUTO LOGIN WITH ROOT@SOCKET.PIE{Fore.WHITE}) . . .{Fore.RESET}")
-time.sleep(int(random.randint(1,3)))
-print(f"{Fore.CYAN}PANEL LOADING . . .{Fore.RESET}")
-time.sleep(1)
-clear_text()
-command()
+def checker_login():
+    global username,password
+    clear_text()
+    print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘{Fore.RESET}")
+    time.sleep(0.5)
+    username = input(f"{Fore.CYAN}USERNAME {Fore.WHITE}${Fore.RESET}")
+    time.sleep(0.5)
+    password = input(f"{Fore.BLUE}PASSWORD {Fore.WHITE}${Fore.RESET}")
+    time.sleep(0.5)
+    print(F"{Fore.BLUE}LOGIN TO PANEL {Fore.WHITE}({Fore.LIGHTBLUE_EX}TRYING LOGIN WITH {username}@{password}{Fore.WHITE}) . . .{Fore.RESET}")
+    time.sleep(int(random.randint(1,3)))
+    if login_checker(username,password) == True:
+     print(f"{Fore.CYAN}PANEL LOADING . . .{Fore.RESET}")
+     time.sleep(1)
+     clear_text()
+     command()
+    else:
+     print(f"{Fore.RED}FAILED {Fore.YELLOW}LOGIN . . .{Fore.RESET}")
+     time.sleep(1)
+     checker_login()
+checker_login()
