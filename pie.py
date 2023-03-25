@@ -19,7 +19,7 @@ username = ''
 password = ''
 
 def login_checker(username,password):
-    credentials = [x.strip() for x in open(f'{os.path.dirname(__file__)}\\login.txt').readlines() if x.strip()]
+    credentials = [x.strip() for x in open(f'{os.path.dirname(__file__)}/login.txt').readlines() if x.strip()]
     for x in credentials:
         c_username, c_password = x.split('@')
         if c_username.upper()  == username.upper() and c_password.upper() == password.upper():
