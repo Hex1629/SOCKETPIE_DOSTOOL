@@ -22,11 +22,16 @@ username = ''
 password = ''
 
 def login_checker(username,password):
-    credentials = [x.strip() for x in open(f'{os.path.dirname(__file__)}/login.txt').readlines() if x.strip()]
-    for x in credentials:
-        c_username, c_password = x.split('@')
-        if c_username.upper()  == username.upper() and c_password.upper() == password.upper():
-            return True
+    file_path = os.path.join(os.path.dirname(__file__), 'login.txt')
+    try:
+        with open(file_path) as f:
+            credentials = [x.strip() for x in f.readlines() if x.strip()]
+            for x in credentials:
+             c_username, c_password = x.split('@')
+             if c_username.upper()  == username.upper() and c_password.upper() == password.upper():
+               return True
+    except FileNotFoundError:
+        return 'UNKNOWN ERROR ARE RETURNING BY FILESNOTFOUND'
 
 def clear_text():
     if platform.system().upper() == "WINDOWS":
@@ -267,6 +272,8 @@ def checker_login():
      time.sleep(1)
      clear_text()
      command()
+    elif login_checker(username,password) == 'UNKNOWN ERROR ARE RETURNING BY FILESNOTFOUND':
+        print(f"{Fore.RED}UNKNOWN ERROR OF FILES 'login.txt'{Fore.RESET}")
     else:
      print(f"{Fore.RED}FAILED {Fore.YELLOW}LOGIN . . .{Fore.RESET}")
      time.sleep(1)
