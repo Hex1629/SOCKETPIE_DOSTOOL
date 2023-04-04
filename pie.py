@@ -274,6 +274,8 @@ def checker_login():
      command()
     elif login_checker(username,password) == 'UNKNOWN ERROR ARE RETURNING BY FILESNOTFOUND':
         print(f"{Fore.RED}UNKNOWN ERROR OF FILES 'login.txt'{Fore.RESET}")
+        time.sleep(1)
+        checker_login()
     else:
      print(f"{Fore.RED}FAILED {Fore.YELLOW}LOGIN . . .{Fore.RESET}")
      time.sleep(1)
