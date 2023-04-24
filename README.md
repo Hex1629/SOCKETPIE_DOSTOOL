@@ -61,6 +61,15 @@ https://user-images.githubusercontent.com/93824226/224642391-d1f90a2d-4730-4bbb-
 
 
 
+
+# SETUP VIDEO BROOO
+
+
+
+https://user-images.githubusercontent.com/93824226/233914223-9632b0c3-3034-4709-9cf4-cc65db478e38.mp4
+
+
+
 # MAKE BY Hex1629 (👤🛠️)
 💸 YOU CAN RESELL BUT YOU NEED TO WRITE CREDIT ME.
 
