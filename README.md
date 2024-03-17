@@ -1,10 +1,5 @@
 # SOCKETPIE_DOSTOOL 🌌
 
-![Screenshot 2024-02-26 224644](https://github.com/Hex1629/SOCKETPIE_DOSTOOL/assets/93824226/f7338ebc-018a-4d83-a438-92e4e704260c)
-
-
-🎥 YOUTUBE --> https://www.youtube.com/channel/UCPeRSiXn6kkLeoJaGJh4ubA
-
 🛠️ DOS TOOL WITH PYTHON LAYER7 :) (HTTP FLOOD🌊)
 
 ⚙️ TECHNIQUES FLOOD (TCP FLOOD ATTACK🌊)
@@ -13,7 +8,17 @@
 
 ⚙️ (⏳DOWN HTTP SMALL SERVER💥) ⚙️
 
-🛠️⚙️ HEYY GUYY NEXT TIME I MADE HTTPS FLOOD🌊
+🛠️⚙️ I MADE HTTPS FLOOD NOW🌊
+
+# INSTALL
+
+**LINUX**
+```
+curl -O https://raw.githubusercontent.com/Hex1629/INSTALL_MYPROJECT/main/INSTALL_SCRIPT/socketpie.linux && bash socketpie.linux
+```
+
+**WINDOWS**
+```cd Downloads && cd SOCKETPIE_DOSTOOL-main && pip install requests && pip install colorama && python pie.py```
 
 # UPDATE  ⏳
 
@@ -48,29 +53,11 @@ IF YOU WANNA USE OLD CODE PIE PLS GO TO THIS 📁FOLDER --> FOLDER_UPDATE⚙️
 
 <h1>🌊 PROOF🎬 🌊</h1>
 
-
 https://user-images.githubusercontent.com/93824226/224772072-c9f767c6-e265-42dd-951a-d7238d449b1d.mp4
-
-
-
 
 https://user-images.githubusercontent.com/93824226/224707531-13c89059-9537-4ac5-87a6-40f3e1508a3d.mp4
 
-
-
-
-
 https://user-images.githubusercontent.com/93824226/224642391-d1f90a2d-4730-4bbb-939e-5231ba658fe2.mp4
-
-
-
-
-# SETUP VIDEO BROOO
-
-
-
-https://user-images.githubusercontent.com/93824226/233914223-9632b0c3-3034-4709-9cf4-cc65db478e38.mp4
-
 
 
 # MAKE BY Hex1629 (👤🛠️)
