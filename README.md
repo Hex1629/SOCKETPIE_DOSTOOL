@@ -18,7 +18,9 @@ curl -O https://raw.githubusercontent.com/Hex1629/INSTALL_MYPROJECT/main/INSTALL
 ```
 
 **WINDOWS**
-```cd Downloads && cd SOCKETPIE_DOSTOOL-main && pip install requests && pip install colorama && python pie.py```
+```
+cd Downloads && cd SOCKETPIE_DOSTOOL-main && pip install requests && pip install colorama && python pie.py
+```
 
 # UPDATE  ⏳
 
