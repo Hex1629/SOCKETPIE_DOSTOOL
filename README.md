@@ -12,6 +12,11 @@
 
 # INSTALL
 
+**REPLIT**
+```
+curl -O https://raw.githubusercontent.com/Hex1629/INSTALL_MYPROJECT/main/INSTALL_SCRIPT/socketpie.replit && bash socketpie.replit
+```
+
 **LINUX**
 ```
 curl -O https://raw.githubusercontent.com/Hex1629/INSTALL_MYPROJECT/main/INSTALL_SCRIPT/socketpie.linux && bash socketpie.linux
