@@ -73,3 +73,15 @@ https://user-images.githubusercontent.com/93824226/224642391-d1f90a2d-4730-4bbb-
 🛠️📁 IF YOU MAKE NEW VERSIONS WRITE CREDIT YOU TOO.
 
 📌 DON'T FORGOT ! ! !
+
+# FAQ
+
+Why i cant login ?
+
+ Just only type ROOT and press enter
+
+
+It working for cloudflare ?
+
+ No it's not https flooding
+
